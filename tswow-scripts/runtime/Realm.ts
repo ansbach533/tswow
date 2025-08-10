@@ -449,6 +449,7 @@ export class Realm {
             try {
                 wsys.exec(`echo "core" | sudo tee /proc/sys/kernel/core_pattern`)
             } catch(e) {
+                term.error(this.logName(), `Failed to set core pattern, core dumps could not work`)
             }
             wsys.exec(`export ASAN_OPTIONS=${NodeConfig.AsanOptions}`)
         }
