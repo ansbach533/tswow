@@ -234,8 +234,7 @@ export class Process {
         , force: boolean = false
     ) {
         term.debug('process', `stopping`)
-        // todo: don't always force
-        if (force || true) {
+        if (force) {
             try {
                 this._process.kill(9);
                 await new Promise(res=>setTimeout(res,1000));
